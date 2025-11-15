@@ -1,19 +1,33 @@
 //TODO add imports if needed
-//import { exMain } from "./exclude/exampleAss2.js"
+import { charToDigit,digitToChar,toDecimal,fromDecimal } from "src/helpers.js"
 //TODO add/change doc as needed
 /**
  * TODO - Write functional code for this application. You can call any other function, but usage of ".toString(numberSystem)" and "Number.parseInt(number, numberSystem)" is forbidden (only permitted when used on individual digits).
  * The main function which calls the application. 
  * TODO - Please, add specific description here for the application purpose.
+ * Application purpose is converts a number from an inputNumber to outputNumberSystem
  * @param {string} inputNumber number that is being converted
  * @param {number} inputNumberSystem numerical system that the inputNumber is being converted from
  * @param {number} outputNumberSystem numerical system that the inputNumber is being converted into
  * @returns {string} containing number converted to output system
  */
+
+/*Plan -- only for my needed --
+1.Overíme vstupy (string,čísla, výstupná/vstupná zostava
+Prevedieme vstupné číslo z jeho sústavy do desiatkovej funkcia: toDecimal
+prevedieme desiatkove číslo do požadovanej výstupnej sústavy funkcia: fromDecimal
+vrátime výsledok ako strin
+ */
+
 export function main(inputNumber, inputNumberSystem, outputNumberSystem) {
-  //TODO code
-  //let dtoOut = exMain(inputNumber, inputNumberSystem, outputNumberSystem);
-  return dtoOut;
+    //TODO code
+    // 1) konverzia vstupného čísla do desiatkovej sústavy
+    const decimalValue = toDecimal(inputNumber, inputNumberSystem);
+
+    // 2) konverzia z desiatkovej sústavy do cieľovej sústavy
+    const dtoOut = fromDecimal(decimalValue, outputNumberSystem);
+    //let dtoOut = exMain(inputNumber, inputNumberSystem, outputNumberSystem);
+    return dtoOut;
 }
 
 /**
@@ -22,7 +36,7 @@ export function main(inputNumber, inputNumberSystem, outputNumberSystem) {
  * @returns {Array} array of numbers refering to permitted input systems
  */
 export function permittedInputSystems() {
-	return [10, 2];
+    return [2, 8, 10, 16];
 }
 
 /**
@@ -31,5 +45,5 @@ export function permittedInputSystems() {
  * @returns {Array} array of numbers refering to permitted output systems
  */
 export function permittedOutputSystems() {
-	return [10, 2];
+    return [2, 8, 10, 16];
 }
